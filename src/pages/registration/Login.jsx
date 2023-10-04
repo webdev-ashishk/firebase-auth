@@ -18,7 +18,8 @@ function Login() {
       const users = localStorage.setItem("user", JSON.stringify(user));
       console.log(users);
       alert("Signin Successful");
-      navigate("/ashishk");
+      navigate("/");
+      // navigate("/ashishk");
       setEmail("");
       setPassword("");
     } catch (error) {
