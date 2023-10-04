@@ -1,6 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.clear("user");
+    navigate("/login");
+  };
   return (
     <div
       className="main lg:flex md:flex flex-wrap justify-between items-center 
@@ -20,8 +28,13 @@ function Navbar() {
             <li className="cursor-pointer">Login</li>
           </Link>
           <Link to={"/signup"}>
-            <li className="cursor-pointer">Signup</li>
+            <li className="cursor-pointer">signup</li>
           </Link>
+          {user && (
+            <li onClick={logout} className="cursor-pointer">
+              Logout
+            </li>
+          )}
         </ul>
       </div>
     </div>
