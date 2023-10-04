@@ -16,8 +16,9 @@ function Login() {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       const users = localStorage.setItem("user", JSON.stringify(user));
+      console.log(users);
       alert("Signin Successful");
-      navigate("/");
+      navigate("/ashishk");
       setEmail("");
       setPassword("");
     } catch (error) {
@@ -64,7 +65,6 @@ function Login() {
           <h2 className="text-white">
             Don't have an account
             <Link className=" text-yellow-500 font-bold" to={"/signup"}>
-              {" "}
               Signup
             </Link>
           </h2>
